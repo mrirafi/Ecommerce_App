@@ -63,13 +63,7 @@
             <include layout="@layout/product_shimmereffect"/>
             <include layout="@layout/product_shimmereffect"/>
             <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
+
 
 
         </GridLayout>
