@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:weightSum="2"
+    android:background="#F6F6F6"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/layItem"
+        android:layout_width="170dp"
+        android:layout_height="270dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/background_curved"
+        android:weightSum="2"
+
+        >
+
+
+
+       <ImageView
+           android:id="@+id/itemImage"
+           android:layout_width="match_parent"
+           android:layout_height="fill_parent"
+           android:src="@drawable/hyteraphone"
+           android:scaleType="centerCrop"
+           android:layout_weight="1"
+           />
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:id="@+id/itemTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hytera PNC mobile feature phone with satelite"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:maxLines="2"
+            android:ellipsize="end"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_rating"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                />
+
+            <TextView
+                android:id="@+id/itemRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.43"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="USD"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                />
+
+
+            <TextView
+                android:id="@+id/itemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3000"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textSize="17sp"
+                android:textColor="#D68000"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/itemDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12.96 %"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:padding="8dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
