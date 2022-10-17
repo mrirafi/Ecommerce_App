@@ -29,9 +29,10 @@ public class Product_Details_Activity extends AppCompatActivity {
 
      ImageSlider images;
     TextView tvTitle, tvDes, itemPrice, itemRating;
-
     String thumbnail;
     JSONArray jsonArray;
+
+
     public static String TITLE = "";
     public static String DES = "";
     public static String PRICE = "";
@@ -45,19 +46,21 @@ public class Product_Details_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
-        Bundle bundle = getIntent().getExtras();
 
         tvTitle = findViewById(R.id.tvTitle);
         tvDes = findViewById(R.id.tvDes);
         itemPrice = findViewById(R.id.itemPrice);
         itemRating = findViewById(R.id.itemRating);
         images = findViewById(R.id.images);
+        Bundle bundle = getIntent().getExtras();
+
 
         tvTitle.setText(TITLE);
         tvDes.setText(DES);
         itemPrice.setText(PRICE);
         itemRating.setText(RATING);
 
+//        if (MYBITMAP!=null) coverImage.setImageBitmap(MYBITMAP);
 
         if (bundle!=null){
             thumbnail =bundle.getString("thumbnail");
@@ -67,8 +70,6 @@ public class Product_Details_Activity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-//        if (MYBITMAP!=null) coverImage.setImageBitmap(MYBITMAP);
-
 
 
 
@@ -82,8 +83,6 @@ public class Product_Details_Activity extends AppCompatActivity {
             }
         }
         images.setImageList(imageList);
-
-
 
 
     }
