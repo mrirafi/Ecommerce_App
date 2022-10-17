@@ -30,16 +30,12 @@ import java.util.ArrayList;
 public class Product_Details_Activity extends AppCompatActivity {
 
     ImageSlider images;
-    TextView tvTitle, tvDes, itemPrice, itemRating,specification;
+    TextView tvTitle, tvDes, itemPrice, itemRating,brand,itemDiscount,category,stock;
     String thumbnail;
     JSONArray jsonArray;
 
+    public static String TITLE,DES,PRICE,RATING,BRAND,IMGSLIDE,DISCOUNT,CATEGORY,STOCK = "";
 
-    public static String TITLE = "";
-    public static String DES = "";
-    public static String PRICE = "";
-    public static String RATING = "";
-    public static String IMGSLIDE = "";
 
     @Override
     
@@ -52,24 +48,21 @@ public class Product_Details_Activity extends AppCompatActivity {
         itemPrice = findViewById(R.id.itemPrice);
         itemRating = findViewById(R.id.itemRating);
         images = findViewById(R.id.images);
-//        specification = findViewById(R.id.specification);
+        brand = findViewById(R.id.brand);
+        itemDiscount = findViewById(R.id.itemDiscount);
+        category = findViewById(R.id.category);
+        stock = findViewById(R.id.stock);
         Bundle bundle = getIntent().getExtras();
 
 
         tvTitle.setText(TITLE);
         tvDes.setText(DES);
-        itemPrice.setText(PRICE);
+        itemPrice.setText(PRICE+"$");
         itemRating.setText(RATING);
-
-//
-//        specification.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AlertDialog.Builder specs= new AlertDialog.Builder(Product_Details_Activity.this);
-//                        specs.set
-//            }
-//        });
-
+        brand.setText(BRAND);
+        itemDiscount.setText("(-" + DISCOUNT + ") off" );
+        category.setText(CATEGORY);
+        stock.setText(STOCK+ "p");
 
 
         if (bundle!=null){

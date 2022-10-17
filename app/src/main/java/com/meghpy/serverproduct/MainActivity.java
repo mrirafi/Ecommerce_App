@@ -50,7 +50,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private GridView gridView;
-    private String thumbnail,images, rating, price,title,description,discountPercentage;
+    private String thumbnail,images, rating, price,title,description,discountPercentage,brand,category,stock;
     private ImageSlider bannerSlider;
     private HashMap<String,String> hashMap;
     private ArrayList <HashMap <String,String>> arrayList = new ArrayList<>();
@@ -67,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
         bannerSlider = findViewById(R.id.bannerSlider);
 
         ArrayList<SlideModel> imageLists = new ArrayList<>();
-        imageLists.add(new SlideModel("https://dummyjson.com/image/i/products/5/3.jpg", null));
-        imageLists.add(new SlideModel("https://dummyjson.com/image/i/products/6/3.png", null));
+        imageLists.add(new SlideModel("https://static.vecteezy.com/system/resources/thumbnails/004/707/493/small/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-vector.jpg", null));
+        imageLists.add(new SlideModel("https://mindstacktechnologies.com/blog/wp-content/uploads/2018/01/ecommerce-banner.jpg", null));
+        imageLists.add(new SlideModel("https://solutiondots.com/wp-content/uploads/2014/09/banner-ecommerce-1024x281.jpg", null));
         bannerSlider.setImageList(imageLists);
 
         data();
@@ -97,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
                         discountPercentage = jsonObject.getString("discountPercentage");
                         thumbnail = jsonObject.optString("thumbnail");
                         images = jsonObject.getString("images");
+                        brand = jsonObject.getString("brand");
+                        category = jsonObject.getString("category");
+                        stock = jsonObject.getString("stock");
 
 
                         hashMap = new HashMap<>();
@@ -107,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
                         hashMap.put("description", description);
                         hashMap.put("discountPercentage", discountPercentage+"%");
                         hashMap.put("price", price);
+                        hashMap.put("brand", brand);
+                        hashMap.put("category", category);
+                        hashMap.put("stock", stock);
                         arrayList.add(hashMap);
 
                     }
@@ -145,12 +152,20 @@ public class MainActivity extends AppCompatActivity {
                 images = hashMap.get("images");
                 rating = hashMap.get("rating");
                 price = hashMap.get("price");
+                brand = hashMap.get("brand");
+                category = hashMap.get("category");
+                stock = hashMap.get("stock");
+                discountPercentage = hashMap.get("discountPercentage");
 
                 Product_Details_Activity.TITLE = title;
                 Product_Details_Activity.DES = description;
                 Product_Details_Activity.PRICE = price;
                 Product_Details_Activity.RATING = rating;
                 Product_Details_Activity.IMGSLIDE = images;
+                Product_Details_Activity.BRAND = brand;
+                Product_Details_Activity.DISCOUNT = discountPercentage;
+                Product_Details_Activity.CATEGORY = category;
+                Product_Details_Activity.STOCK = stock;
 
                 Intent intent = new Intent(MainActivity.this,Product_Details_Activity.class);
                 intent.putExtra("thumbnail",images);
