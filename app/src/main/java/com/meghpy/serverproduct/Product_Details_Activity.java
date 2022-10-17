@@ -39,8 +39,6 @@ public class Product_Details_Activity extends AppCompatActivity {
     public static String RATING = "";
     public static String IMGSLIDE = "";
 
-//    public static Bitmap MYBITMAP = null;
-
     @Override
     
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +57,6 @@ public class Product_Details_Activity extends AppCompatActivity {
         tvDes.setText(DES);
         itemPrice.setText(PRICE);
         itemRating.setText(RATING);
-
-//        if (MYBITMAP!=null) coverImage.setImageBitmap(MYBITMAP);
 
         if (bundle!=null){
             thumbnail =bundle.getString("thumbnail");

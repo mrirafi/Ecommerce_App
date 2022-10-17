@@ -217,17 +217,6 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout layItem = myView.findViewById(R.id.layItem);
 
 
-//
-//            HashMap<String,String> imgMap = arrayList2.get(position);
-//             images = imgMap.get("images");
-//            for (int i=0; i<images.length(); i++){
-//
-//                Picasso.get().load(images)
-//                        .placeholder(R.drawable.img_background)
-//                        .into(itemImage);
-//            }
-
-
 
             HashMap<String,String> hashMap = arrayList.get(position);
             String title = hashMap.get("title");
@@ -267,8 +256,6 @@ public class MainActivity extends AppCompatActivity {
 //
 ////                    Bitmap bitmap = ((BitmapDrawable) itemImage.getDrawable()).getBitmap();
 ////                    Product_Details_Activity.MYBITMAP = bitmap;
-//
-//
 //
 //
 //                }
