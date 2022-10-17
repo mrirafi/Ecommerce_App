@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -154,6 +155,33 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
         requestQueue.add(jsonObjectRequest);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                HashMap<String,String> hashMap = arrayList.get(position);
+                String title = hashMap.get("title");
+                String description = hashMap.get("description");
+                thumbnail = hashMap.get("thumbnail");
+                       images = hashMap.get("images");
+                String rating = hashMap.get("rating");
+                String price = hashMap.get("price");
+                Product_Details_Activity.TITLE = title;
+                Product_Details_Activity.DES = description;
+                Product_Details_Activity.PRICE = price;
+                Product_Details_Activity.RATING = rating;
+                Product_Details_Activity.IMGSLIDE = images;
+
+                Intent intent = new Intent(MainActivity.this,Product_Details_Activity.class);
+                //    Log.d("112233",images);
+                intent.putExtra("thumbnail",images);
+                startActivity(intent);
+
+
+            }
+        });
+
     }
 
 
@@ -205,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
             String title = hashMap.get("title");
             String description = hashMap.get("description");
              thumbnail = hashMap.get("thumbnail");
-             images = hashMap.get("images");
+     //        images = hashMap.get("images");
             String rating = hashMap.get("rating");
             String price = hashMap.get("price");
             String discountPercentage = hashMap.get("discountPercentage");
@@ -224,32 +252,29 @@ public class MainActivity extends AppCompatActivity {
 //            itemCat.setBackgroundColor(color);
 
 
-            layItem.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-
-                    Product_Details_Activity.TITLE = title;
-                    Product_Details_Activity.DES = description;
-                    Product_Details_Activity.PRICE = price;
-                    Product_Details_Activity.RATING = rating;
-                    Product_Details_Activity.IMGSLIDE = images;
-
-
-
-//                    Bitmap bitmap = ((BitmapDrawable) itemImage.getDrawable()).getBitmap();
-//                    Product_Details_Activity.MYBITMAP = bitmap;
-
-
-
-                    Intent intent = new Intent(MainActivity.this,Product_Details_Activity.class);
-                //    Log.d("112233",images);
-                    intent.putExtra("thumbnail",images);
-                    startActivity(intent);
-                }
-
-            });
-
+//            layItem.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+////
+////                    Product_Details_Activity.TITLE = title;
+////                    Product_Details_Activity.DES = description;
+////                    Product_Details_Activity.PRICE = price;
+////                    Product_Details_Activity.RATING = rating;
+////                    Product_Details_Activity.IMGSLIDE = images;
+////
+////
+//
+////                    Bitmap bitmap = ((BitmapDrawable) itemImage.getDrawable()).getBitmap();
+////                    Product_Details_Activity.MYBITMAP = bitmap;
+//
+//
+//
+//
+//                }
+//
+//            });
+//
 
             return myView;
         }
