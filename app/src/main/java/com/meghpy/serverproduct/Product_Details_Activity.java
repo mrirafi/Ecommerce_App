@@ -30,8 +30,8 @@ public class Product_Details_Activity extends AppCompatActivity {
      ImageSlider images;
     TextView tvTitle, tvDes, itemPrice, itemRating;
 
-
-
+    String thumbnail;
+    JSONArray jsonArray;
     public static String TITLE = "";
     public static String DES = "";
     public static String PRICE = "";
@@ -45,6 +45,7 @@ public class Product_Details_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
+        Bundle bundle = getIntent().getExtras();
 
         tvTitle = findViewById(R.id.tvTitle);
         tvDes = findViewById(R.id.tvDes);
@@ -57,14 +58,28 @@ public class Product_Details_Activity extends AppCompatActivity {
         itemPrice.setText(PRICE);
         itemRating.setText(RATING);
 
+
+        if (bundle!=null){
+            thumbnail =bundle.getString("thumbnail");
+            try {
+                jsonArray =  new JSONArray(thumbnail);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
 //        if (MYBITMAP!=null) coverImage.setImageBitmap(MYBITMAP);
 
 
 
 
         ArrayList<SlideModel> imageList = new ArrayList<>();
-        for (int i=0; i<4; i++){
-        imageList.add(new SlideModel(IMGSLIDE, null));
+
+        for (int i=0; i<jsonArray.length(); i++){
+            try {
+                imageList.add(new SlideModel(jsonArray.getString(i),null));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
         images.setImageList(imageList);
 

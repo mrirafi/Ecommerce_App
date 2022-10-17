@@ -49,6 +49,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private GridView gridView;
+    String thumbnail,images;
     private ImageSlider bannerSlider;
     private HashMap<String,String> hashMap;
     private HashMap<String,String> imgMap;
@@ -100,30 +101,33 @@ public class MainActivity extends AppCompatActivity {
                         String rating = jsonObject.getString("rating");
                         String price = jsonObject.getString("price");
                         String description = jsonObject.getString("description");
+                         images = jsonObject.getString("images");
                         String discountPercentage = jsonObject.getString("discountPercentage");
-                        String thumbnail = jsonObject.optString("thumbnail");
+                         thumbnail = jsonObject.optString("thumbnail");
 
-                        JSONArray imageArray = jsonObject.getJSONArray("images");
-                        for (int x=0; x<imageArray.length(); x++){
-                            String images = imageArray.getString(x);
-
-                            Log.d("pic",images);
-
-                            imgMap = new HashMap<>();
-                            for (int p=0; p<images.length(); p++){
-                                imgMap.put("images",images);
-                            }
-                            arrayList2.add(imgMap);
-                        }
+//                        JSONArray imageArray = jsonObject.getJSONArray("images");
+//                        for (int x=0; x<imageArray.length(); x++){
+//                            String images = imageArray.getString(x);
+//
+//                            Log.d("pic",images);
+//
+////                            imgMap = new HashMap<>();
+////                            for (int p=0; p<images.length(); p++){
+////                                imgMap.put("images",images);
+////                            }
+//                            arrayList2.add(imgMap);
+//                        }
 
 
                         hashMap = new HashMap<>();
                         hashMap.put("thumbnail",thumbnail);
                         hashMap.put("title",title);
                         hashMap.put("rating", rating);
+                        hashMap.put("images", images);
                         hashMap.put("description", description);
                         hashMap.put("discountPercentage", discountPercentage+"%");
                         hashMap.put("price", price);
+
                         arrayList.add(hashMap);
 
 
@@ -185,9 +189,9 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout layItem = myView.findViewById(R.id.layItem);
 
 
-
-            HashMap<String,String> imgMap = arrayList2.get(position);
-            String images = imgMap.get("images");
+//
+//            HashMap<String,String> imgMap = arrayList2.get(position);
+//             images = imgMap.get("images");
 //            for (int i=0; i<images.length(); i++){
 //
 //                Picasso.get().load(images)
@@ -200,7 +204,8 @@ public class MainActivity extends AppCompatActivity {
             HashMap<String,String> hashMap = arrayList.get(position);
             String title = hashMap.get("title");
             String description = hashMap.get("description");
-            String thumbnail = hashMap.get("thumbnail");
+             thumbnail = hashMap.get("thumbnail");
+             images = hashMap.get("images");
             String rating = hashMap.get("rating");
             String price = hashMap.get("price");
             String discountPercentage = hashMap.get("discountPercentage");
@@ -235,7 +240,12 @@ public class MainActivity extends AppCompatActivity {
 //                    Bitmap bitmap = ((BitmapDrawable) itemImage.getDrawable()).getBitmap();
 //                    Product_Details_Activity.MYBITMAP = bitmap;
 
-                    startActivity(new Intent(MainActivity.this, Product_Details_Activity.class));
+
+
+                    Intent intent = new Intent(MainActivity.this,Product_Details_Activity.class);
+                //    Log.d("112233",images);
+                    intent.putExtra("thumbnail",images);
+                    startActivity(intent);
                 }
 
             });
