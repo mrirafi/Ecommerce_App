@@ -50,14 +50,11 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private GridView gridView;
-    String thumbnail,images;
+    private String thumbnail,images, rating, price,title,description,discountPercentage;
     private ImageSlider bannerSlider;
     private HashMap<String,String> hashMap;
-    private HashMap<String,String> imgMap;
     private ArrayList <HashMap <String,String>> arrayList = new ArrayList<>();
-    private ArrayList <HashMap <String,String>> arrayList2 = new ArrayList<>();
-
-    ShimmerFrameLayout shimmerFrameLayout;
+    private  ShimmerFrameLayout shimmerFrameLayout;
 
 
     @SuppressLint("WrongViewCast")
@@ -76,19 +73,14 @@ public class MainActivity extends AppCompatActivity {
 
         data();
 
-
     }
 
     //=====================================
     private void data(){
         shimmerFrameLayout = findViewById(R.id.shimmerEffect);
-
         gridView.setVisibility(View.INVISIBLE);
 
-
         String url ="https://dummyjson.com/products";
-
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -98,26 +90,13 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray jsonArray = response.getJSONArray("products");
                     for (int i=0; i<jsonArray.length(); i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String title = jsonObject.getString("title");
-                        String rating = jsonObject.getString("rating");
-                        String price = jsonObject.getString("price");
-                        String description = jsonObject.getString("description");
-                         images = jsonObject.getString("images");
-                        String discountPercentage = jsonObject.getString("discountPercentage");
-                         thumbnail = jsonObject.optString("thumbnail");
-
-//                        JSONArray imageArray = jsonObject.getJSONArray("images");
-//                        for (int x=0; x<imageArray.length(); x++){
-//                            String images = imageArray.getString(x);
-//
-//                            Log.d("pic",images);
-//
-////                            imgMap = new HashMap<>();
-////                            for (int p=0; p<images.length(); p++){
-////                                imgMap.put("images",images);
-////                            }
-//                            arrayList2.add(imgMap);
-//                        }
+                        title = jsonObject.getString("title");
+                        rating = jsonObject.getString("rating");
+                        price = jsonObject.getString("price");
+                        description = jsonObject.getString("description");
+                        discountPercentage = jsonObject.getString("discountPercentage");
+                        thumbnail = jsonObject.optString("thumbnail");
+                        images = jsonObject.getString("images");
 
 
                         hashMap = new HashMap<>();
@@ -128,11 +107,10 @@ public class MainActivity extends AppCompatActivity {
                         hashMap.put("description", description);
                         hashMap.put("discountPercentage", discountPercentage+"%");
                         hashMap.put("price", price);
-
                         arrayList.add(hashMap);
 
-
                     }
+
                     MyAdapter myAdapter = new MyAdapter();
                     gridView.setAdapter(myAdapter);
                     shimmerFrameLayout.stopShimmer();
@@ -161,12 +139,13 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 HashMap<String,String> hashMap = arrayList.get(position);
-                String title = hashMap.get("title");
-                String description = hashMap.get("description");
+                title = hashMap.get("title");
+                description = hashMap.get("description");
                 thumbnail = hashMap.get("thumbnail");
-                       images = hashMap.get("images");
-                String rating = hashMap.get("rating");
-                String price = hashMap.get("price");
+                images = hashMap.get("images");
+                rating = hashMap.get("rating");
+                price = hashMap.get("price");
+
                 Product_Details_Activity.TITLE = title;
                 Product_Details_Activity.DES = description;
                 Product_Details_Activity.PRICE = price;
@@ -174,19 +153,15 @@ public class MainActivity extends AppCompatActivity {
                 Product_Details_Activity.IMGSLIDE = images;
 
                 Intent intent = new Intent(MainActivity.this,Product_Details_Activity.class);
-                //    Log.d("112233",images);
                 intent.putExtra("thumbnail",images);
                 startActivity(intent);
-
 
             }
         });
 
     }
 
-
     //=====================================
-
 
     private class MyAdapter extends BaseAdapter{
         @Override
@@ -214,18 +189,16 @@ public class MainActivity extends AppCompatActivity {
             TextView itemRating = myView.findViewById(R.id.itemRating);
             TextView itemPrice = myView.findViewById(R.id.itemPrice);
             TextView itemDiscount = myView.findViewById(R.id.itemDiscount);
-            LinearLayout layItem = myView.findViewById(R.id.layItem);
 
 
 
             HashMap<String,String> hashMap = arrayList.get(position);
-            String title = hashMap.get("title");
-            String description = hashMap.get("description");
-             thumbnail = hashMap.get("thumbnail");
-     //        images = hashMap.get("images");
-            String rating = hashMap.get("rating");
-            String price = hashMap.get("price");
-            String discountPercentage = hashMap.get("discountPercentage");
+            title = hashMap.get("title");
+            description = hashMap.get("description");
+            thumbnail = hashMap.get("thumbnail");
+            rating = hashMap.get("rating");
+            price = hashMap.get("price");
+            discountPercentage = hashMap.get("discountPercentage");
             Picasso.get().load(thumbnail)
                     .placeholder(R.drawable.img_background)
                     .into(itemImage);
@@ -236,37 +209,12 @@ public class MainActivity extends AppCompatActivity {
             itemPrice.setText(price);
             itemDiscount.setText("(-" + discountPercentage + ")");
 
-//            Random rnd = new Random();
-//            int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-//            itemCat.setBackgroundColor(color);
-
-
-//            layItem.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-////
-////                    Product_Details_Activity.TITLE = title;
-////                    Product_Details_Activity.DES = description;
-////                    Product_Details_Activity.PRICE = price;
-////                    Product_Details_Activity.RATING = rating;
-////                    Product_Details_Activity.IMGSLIDE = images;
-////
-////
-//
-////                    Bitmap bitmap = ((BitmapDrawable) itemImage.getDrawable()).getBitmap();
-////                    Product_Details_Activity.MYBITMAP = bitmap;
-//
-//
-//                }
-//
-//            });
-//
 
             return myView;
         }
     }
 
+//========================
 
 
 }

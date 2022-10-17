@@ -26,25 +26,24 @@
                 app:iss_auto_cycle="true"
                 app:iss_period="2000"
                 app:iss_delay="0"
+                android:paddingBottom="5dp"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="10dp"
                 android:background="@drawable/background_curved"
-                android:padding="8dp"
+                android:paddingBottom="10dp"
                 >
 
         <TextView
-            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#77000000"
+            android:background="#FF9800"
             android:gravity="center"
             android:padding="10dp"
-            android:text="চার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমির"
+            android:text="SuperDeals"
             android:textColor="@color/white"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -91,6 +90,17 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title here"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:padding="15dp"
+                    />
+
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,21 +126,38 @@
                 </LinearLayout>
 
 
-
-
-            <TextView
-                android:id="@+id/tvDes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:text=" রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমির"
-                android:padding="10dp"
-                android:scrollbars="none"
-                android:textColor="#F2000000" />
-
-
-
             </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"
+        >
+
+        <TextView
+            android:id="@+id/specification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Specification"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tvDes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text=" রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমিরচার বছরের মধ্যে শীর্ষ তিন ব্র্যান্ডে স্থান রিয়েলমির"
+            android:padding="15dp"
+            android:scrollbars="none"
+            android:textColor="#F2000000" />
+
+    </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>

@@ -1,9 +1,11 @@
 package com.meghpy.serverproduct;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,8 +29,8 @@ import java.util.ArrayList;
 
 public class Product_Details_Activity extends AppCompatActivity {
 
-     ImageSlider images;
-    TextView tvTitle, tvDes, itemPrice, itemRating;
+    ImageSlider images;
+    TextView tvTitle, tvDes, itemPrice, itemRating,specification;
     String thumbnail;
     JSONArray jsonArray;
 
@@ -50,6 +52,7 @@ public class Product_Details_Activity extends AppCompatActivity {
         itemPrice = findViewById(R.id.itemPrice);
         itemRating = findViewById(R.id.itemRating);
         images = findViewById(R.id.images);
+//        specification = findViewById(R.id.specification);
         Bundle bundle = getIntent().getExtras();
 
 
@@ -57,6 +60,17 @@ public class Product_Details_Activity extends AppCompatActivity {
         tvDes.setText(DES);
         itemPrice.setText(PRICE);
         itemRating.setText(RATING);
+
+//
+//        specification.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AlertDialog.Builder specs= new AlertDialog.Builder(Product_Details_Activity.this);
+//                        specs.set
+//            }
+//        });
+
+
 
         if (bundle!=null){
             thumbnail =bundle.getString("thumbnail");
