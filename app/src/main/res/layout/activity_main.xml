@@ -2,12 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
+    android:background="#F6F6F6"
     android:orientation="vertical"
-    android:background="#F6F6F6">
 
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="true"
+        >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/bannerSlider"
@@ -18,16 +31,20 @@
         app:iss_delay="0"
         />
 
+
+
     <GridView
         android:id="@+id/gridView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:numColumns="2"
         android:layout_gravity="center"
         android:padding="10dp"
         android:scrollbars="none"
         android:layout_marginTop="10dp"
+        android:nestedScrollingEnabled="false"
         />
+
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerEffect"
@@ -38,12 +55,6 @@
         android:layout_gravity="center"
         android:padding="10dp">
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:layout_gravity="center"
-            >
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -63,19 +74,31 @@
             <include layout="@layout/product_shimmereffect"/>
             <include layout="@layout/product_shimmereffect"/>
             <include layout="@layout/product_shimmereffect"/>
-
-
+            <include layout="@layout/product_shimmereffect"/>
+            <include layout="@layout/product_shimmereffect"/>
+            <include layout="@layout/product_shimmereffect"/>
+            <include layout="@layout/product_shimmereffect"/>
+            <include layout="@layout/product_shimmereffect"/>
+            <include layout="@layout/product_shimmereffect"/>
+            <include layout="@layout/product_shimmereffect"/>
+            <include layout="@layout/product_shimmereffect"/>
 
         </GridLayout>
 
-        </ScrollView>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
 
 
 
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Example"
 
-
-
+    />
 
 </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+
