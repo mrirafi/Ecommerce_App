@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Product_Details_Activity.MYBITMAP = bitmap;
 
                     Intent intent = new Intent(MainActivity.this,Product_Details_Activity.class);
-                    //    Log.d("112233",images);
+                        Log.d("112233",images);
                             intent.putExtra("thumbnail",images);
                              startActivity(intent);
                 }
