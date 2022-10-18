@@ -70,23 +70,10 @@
             <include layout="@layout/product_shimmereffect"/>
             <include layout="@layout/product_shimmereffect"/>
             <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
-            <include layout="@layout/product_shimmereffect"/>
 
         </GridLayout>
         </ScrollView>
     </com.facebook.shimmer.ShimmerFrameLayout>
-
-
-
-
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Example"
-
-    />
 
 
 </LinearLayout>

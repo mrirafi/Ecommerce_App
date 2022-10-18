@@ -23,7 +23,7 @@
            android:id="@+id/itemImage"
            android:layout_width="match_parent"
            android:layout_height="fill_parent"
-           android:src="@drawable/hyteraphone"
+           android:src="@drawable/img_background"
            android:scaleType="centerCrop"
            android:layout_weight="1"
            />
